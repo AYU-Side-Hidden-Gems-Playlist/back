@@ -1,12 +1,3 @@
----
-name: PR Templete
-about: PR시 이용 템플릿
-title: "[PR]"
-labels: pr, question
-assignees: ''
-
----
-
 ## #️⃣연관된 이슈
 
 > ex) #이슈번호, #이슈번호
