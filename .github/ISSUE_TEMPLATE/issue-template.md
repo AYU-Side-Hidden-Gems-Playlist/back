@@ -1,12 +1,3 @@
----
-name: Issue template
-about: Issue시 사용 템플릿
-title: "[ISSUE]"
-labels: ''
-assignees: ''
-
----
-
 기능 요청 이슈
 ## 어떤 기능인가요?
 
