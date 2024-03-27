@@ -1,7 +1,7 @@
 package com.example.ayusidehiddengemsplaylistback.controller;
 
 import com.example.ayusidehiddengemsplaylistback.service.ShareUrlService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,17 +10,13 @@ import java.util.Collections;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class ShareUrlController {
     private final ShareUrlService shareUrlService;
 
-    @Autowired
-    public ShareUrlController(ShareUrlService shareUrlService) {
-        this.shareUrlService = shareUrlService;
-    }
-
-    @GetMapping("/playlists/{playlistId}") //playlistid는 경로변수
+    @GetMapping("/playlists/{playlistId}") // playlistId는 경로변수
     public ResponseEntity<Map<String, String>> getPlaylistUrl(@PathVariable Long playlistId) {
-        String url = shareUrlService.getPlaylistUrl(playlistId); //url를 실제 URL키로 지정
+        String url = shareUrlService.getPlaylistUrl(playlistId); // url을 실제 URL키로 지정
         Map<String, String> response = Collections.singletonMap("url", url);
         return ResponseEntity.ok().body(response);
     }
