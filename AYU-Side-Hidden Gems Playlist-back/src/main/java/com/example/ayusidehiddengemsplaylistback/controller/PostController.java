@@ -24,22 +24,22 @@ public class PostController {
     }
 
 
-    @GetMapping("/read/{id}")
-    public ResponseEntity<Post> getPostById(@PathVariable Integer id) {
-        Post post = postService.findPostById(id)
-                .orElseThrow(() -> new RuntimeException("Post not found with id " + id));
+    @GetMapping("/read/{playlistId}")
+    public ResponseEntity<Post> getPostById(@PathVariable Integer playlistId) {
+        Post post = postService.findPostById(playlistId)
+                .orElseThrow(() -> new RuntimeException("Post not found with playlistId " + playlistId));
         return ResponseEntity.ok(post);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Post> updatePost(@PathVariable Integer id, @RequestBody Post postDetails) {
-        Post updatedPost = postService.updatePost(id, postDetails);
+    @PutMapping("/update/{playlistId}")
+    public ResponseEntity<Post> updatePost(@PathVariable Integer playlistId, @RequestBody Post postDetails) {
+        Post updatedPost = postService.updatePost(playlistId, postDetails);
         return ResponseEntity.ok(updatedPost);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deletePost(@PathVariable Integer id) {
-        postService.deletePost(id);
+    @DeleteMapping("/delete/{playlistId}")
+    public ResponseEntity<?> deletePost(@PathVariable Integer playlistId) {
+        postService.deletePost(playlistId);
         return ResponseEntity.ok().build();
     }
 }

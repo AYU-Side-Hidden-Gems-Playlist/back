@@ -22,23 +22,23 @@ public class PostService {
     }
 
     //read
-    public Optional<Post> findPostById(Integer id) {
-        return postRepository.findById(id);
+    public Optional<Post> findPostById(Integer playlistId) {
+        return postRepository.findById(playlistId);
     }
 
     // update
-    public Post updatePost(Integer id, Post postDetails) {
-        Post post = postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Post not found with id " + id));
+    public Post updatePost(Integer playlistId, Post postDetails) {
+        Post post = postRepository.findById(playlistId)
+                .orElseThrow(() -> new RuntimeException("Post not found with playlistId " + playlistId));
         post.setTitle(postDetails.getTitle());
         post.setContent(postDetails.getContent());
         return postRepository.save(post);
     }
 
     // delete
-    public void deletePost(Integer id) {
-        Post post = postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Post not found with id " + id));
+    public void deletePost(Integer playlistId) {
+        Post post = postRepository.findById(playlistId)
+                .orElseThrow(() -> new RuntimeException("Post not found with id " + playlistId));
         postRepository.delete(post);
     }
 }
