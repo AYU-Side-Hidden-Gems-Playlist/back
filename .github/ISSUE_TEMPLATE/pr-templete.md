@@ -1,15 +1,31 @@
-## #️⃣연관된 이슈
+## :pencil: AS-IS (코드 바뀌기 전)
 
-> ex) #이슈번호, #이슈번호
+## :sparkles: To-Be (바뀐 후)
+~Service
+-
+-
+-
 
-## 📝작업 내용
+~Controller
+-
+-
+-
 
-> 이번 PR에서 작업한 내용을 간략히 설명해주세요(이미지 첨부 가능)
+~Repository
+-
 
-### 스크린샷 (선택)
+## :face_with_monocle: 리뷰어들이 봤으면 하는 점
 
-## 💬리뷰 요구사항(선택)
+- [ ] 소스 코드 위치 경로
+    :heavy_check_mark: 
+    :heavy_check_mark: 
+    :heavy_check_mark: 
+- [ ] 내 생각
 
-> 리뷰어가 특별히 봐주었으면 하는 부분이 있다면 작성해주세요
->
-> ex) 메서드 XXX의 이름을 더 잘 짓고 싶은데 혹시 좋은 명칭이 있을까요?
+## :heavy_check_mark: TEST 사항
+
+- [ ] API TEST
+- [ ] TEST CODE
+<!-- 이곳에 테스트 사항을 작성해주세요 -->
+
+## :camera_with_flash: 테스트 스크린샷
