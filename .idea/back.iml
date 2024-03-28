@@ -2,9 +2,13 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+<<<<<<< HEAD
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/AYU-Side-Hidden Gems Playlist-back/src" isTestSource="false" />
     </content>
+=======
+    <content url="file://$MODULE_DIR$" />
+>>>>>>> e58dd61 (001-SignUp)
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -1,10 +1,18 @@
 package com.example.ayusidehiddengemsplaylistback.service;
 
 
+<<<<<<< HEAD
 import com.example.ayusidehiddengemsplaylistback.domain.entity.TokenType;
 import com.example.ayusidehiddengemsplaylistback.domain.entity.Member;
 import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
 import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
+=======
+import com.example.ayusidehiddengemsplaylistback.configuration.TokenType;
+import com.example.ayusidehiddengemsplaylistback.domain.Member;
+import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
+import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
+import com.example.ayusidehiddengemsplaylistback.service.token.TokenManager;
+>>>>>>> e58dd61 (001-SignUp)
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

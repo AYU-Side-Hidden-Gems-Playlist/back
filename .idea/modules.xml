@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AYU-Side-HiddenGemsPlaylist-back.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AYU-Side-HiddenGemsPlaylist-back.main.iml" />
+>>>>>>> e58dd61 (001-SignUp)
       <module fileurl="file://$PROJECT_DIR$/.idea/back.iml" filepath="$PROJECT_DIR$/.idea/back.iml" />
     </modules>
   </component>

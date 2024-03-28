@@ -1,6 +1,10 @@
 package com.example.ayusidehiddengemsplaylistback.service;
 
+<<<<<<< HEAD
 import com.example.ayusidehiddengemsplaylistback.domain.entity.Member;
+=======
+import com.example.ayusidehiddengemsplaylistback.domain.Member;
+>>>>>>> e58dd61 (001-SignUp)
 import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
 import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
 import com.example.ayusidehiddengemsplaylistback.error.exception.BusinessException;

@@ -1,6 +1,10 @@
 package com.example.ayusidehiddengemsplaylistback.repository;
 
+<<<<<<< HEAD
 import com.example.ayusidehiddengemsplaylistback.domain.entity.Member;
+=======
+import com.example.ayusidehiddengemsplaylistback.domain.Member;
+>>>>>>> e58dd61 (001-SignUp)
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
