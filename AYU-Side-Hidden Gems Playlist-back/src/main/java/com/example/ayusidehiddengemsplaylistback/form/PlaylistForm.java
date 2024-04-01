@@ -8,11 +8,9 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class PostForm {
+public class PlaylistForm {
     @NotEmpty(message = "제목을 작성해주세요.")
     @Size(max=200)
-    private String title;
+    private String playlistTitle;
 
-    @NotEmpty(message = "내용을 입력해주세요.")
-    private String content;
 }
