@@ -1,14 +1,14 @@
 package com.example.ayusidehiddengemsplaylistback.controller;
 
-import com.example.ayusidehiddengemsplaylistback.dto.PlaylistDto;
-import com.example.ayusidehiddengemsplaylistback.dto.SongDto;
 import com.example.ayusidehiddengemsplaylistback.entity.Playlist;
 import com.example.ayusidehiddengemsplaylistback.entity.Song;
+import com.example.ayusidehiddengemsplaylistback.form.PlaylistForm;
+import com.example.ayusidehiddengemsplaylistback.form.SongForm;
 import com.example.ayusidehiddengemsplaylistback.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,21 +24,24 @@ public class PlaylistController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<PlaylistDto> createPlaylist(@RequestBody Playlist playlist) {
+    public ResponseEntity<Playlist> createPlaylist(@Valid @RequestBody PlaylistForm playlistForm) {
+        Playlist playlist = new Playlist();
+        playlist.setPlaylistTitle(playlistForm.getPlaylistTitle());
         Playlist createdPlaylist = playlistService.createPlaylist(playlist);
-        PlaylistDto playlistDto = new PlaylistDto(createdPlaylist.getPlaylistId(), createdPlaylist.getPlaylistTitle());
-        return ResponseEntity.ok(playlistDto);
+        return ResponseEntity.ok(createdPlaylist);
     }
 
     @GetMapping("/read/{playlistId}")
     public ResponseEntity<Playlist> getPlaylistById(@PathVariable Integer playlistId) {
         Playlist playlist = playlistService.findPlaylistById(playlistId)
-                .orElseThrow(() -> new RuntimeException("Post not found with playlistId " + playlistId));
+                .orElseThrow(() -> new RuntimeException("Playlist not found with playlistId " + playlistId));
         return ResponseEntity.ok(playlist);
     }
 
     @PutMapping("/update/{playlistId}")
-    public ResponseEntity<Playlist> updatePlaylist(@PathVariable Integer playlistId, @RequestBody Playlist playlistDetails) {
+    public ResponseEntity<Playlist> updatePlaylist(@PathVariable Integer playlistId, @Valid @RequestBody PlaylistForm playlistForm) {
+        Playlist playlistDetails = new Playlist();
+        playlistDetails.setPlaylistTitle(playlistForm.getPlaylistTitle());
         Playlist updatedPlaylist = playlistService.updatePlaylist(playlistId, playlistDetails);
         return ResponseEntity.ok(updatedPlaylist);
     }
@@ -51,27 +54,31 @@ public class PlaylistController {
 
     // 노래 추가
     @PostMapping("/addSong/{playlistId}")
-    public ResponseEntity<List<SongDto>> addSongToPlaylist(@PathVariable Integer playlistId, @RequestBody SongDto songDto) {
+    public ResponseEntity<List<SongForm>> addSongToPlaylist(@PathVariable Integer playlistId, @Valid @RequestBody SongForm songForm) {
         Song song = new Song();
-        song.setSongTitle(songDto.getSongTitle());
-        song.setSinger(songDto.getSinger());
-        song.setUrl(songDto.getUrl());
+        song.setSongTitle(songForm.getSongTitle());
+        song.setSinger(songForm.getSinger());
+        song.setUrl(songForm.getUrl());
 
-        List<Song> updatedSongList = playlistService.addSongToPlaylist(playlistId, songDto);
-        List<SongDto> responseDTOList = updatedSongList.stream()
-                .map(s -> new SongDto(s.getSongId(), s.getSongTitle(), s.getSinger(), s.getUrl()))
+        List<Song> updatedSongList = playlistService.addSongToPlaylist(playlistId, song);
+        List<SongForm> responseFormList = updatedSongList.stream()
+                .map(s -> {
+                    SongForm sf = new SongForm();
+                    sf.setSongTitle(s.getSongTitle());
+                    sf.setSinger(s.getSinger());
+                    sf.setUrl(s.getUrl());
+                    return sf;
+                })
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok(responseDTOList);
+        return ResponseEntity.ok(responseFormList);
     }
 
     // 노래 수정
     @PutMapping("/updateSong/{playlistId}/{songId}")
     public ResponseEntity<Song> updateSong(@PathVariable Integer playlistId, @PathVariable Integer songId,
-                                           @RequestParam(value = "songTitle", required = false) String songTitle,
-                                           @RequestParam(value = "singer", required = false) String singer,
-                                           @RequestParam(value = "url", required = false) String url) {
-        Song updatedSong = playlistService.updateSongFromPlaylist(playlistId, songId, songTitle, singer, url);
+                                           @Valid @RequestBody SongForm songForm) {
+        Song updatedSong = playlistService.updateSongFromPlaylist(playlistId, songId, songForm.getSongTitle(), songForm.getSinger(), songForm.getUrl());
         return ResponseEntity.ok(updatedSong);
     }
 

@@ -1,6 +1,5 @@
 package com.example.ayusidehiddengemsplaylistback.service;
 
-import com.example.ayusidehiddengemsplaylistback.dto.SongDto;
 import com.example.ayusidehiddengemsplaylistback.entity.Playlist;
 import com.example.ayusidehiddengemsplaylistback.repository.PlaylistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,7 @@ public class PlaylistService {
     // update
     public Playlist updatePlaylist(Integer playlistId, Playlist playlistDetails) {
         Playlist playlist = playlistRepository.findById(playlistId)
-                .orElseThrow(() -> new RuntimeException("Post not found with playlistId " + playlistId));
+                .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
         playlist.setPlaylistTitle(playlistDetails.getPlaylistTitle());
         return playlistRepository.save(playlist);
     }
@@ -45,48 +44,46 @@ public class PlaylistService {
     // delete
     public void deletePlaylist(Integer playlistId) {
         Playlist playlist = playlistRepository.findById(playlistId)
-                .orElseThrow(() -> new RuntimeException("Post not found with id " + playlistId));
+                .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
         playlistRepository.delete(playlist);
     }
 
-    public List<Song> addSongToPlaylist(Integer playlistId, SongDto songDto) {
-        // 플레이리스트를 찾는다.
+    public List<Song> addSongToPlaylist(Integer playlistId, Song song) {
+        // 플레이리스트 찾기
         Playlist playlist = playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
 
-        // DTO에서 Song 엔티티로 변환한다.
-        Song song = new Song();
-        song.setSongTitle(songDto.getSongTitle());
-        song.setSinger(songDto.getSinger());
-        song.setUrl(songDto.getUrl());
-
-        // Playlist 엔티티의 addSong 메소드를 사용하여 노래를 추가한다.
-        playlist.addSong(song);
-
-        // 변경사항을 저장한다. Cascade 설정으로 인해 Song 엔티티도 함께 저장된다.
-        playlistRepository.save(playlist);
-
-        // 새로운 노래 목록을 반환한다.
+        playlist.addSong(song); // Playlist 엔티티의 addSong 메소드를 사용하여 노래를 추가
+        playlistRepository.save(playlist); // 변경사항을 저장한다. Cascade 설정으로 인해 Song 엔티티도 함께 저장
         return new ArrayList<>(playlist.getSongs()); // 수정된 Playlist의 Song 목록을 반환한다.
     }
 
     public Song updateSongFromPlaylist(Integer playlistId, Integer songId, String newSongTitle, String newSinger, String newUrl) {
+        // 플레이리스트 찾기
         playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
+        // 노래 찾기
         Song song = songRepository.findById(songId)
                 .orElseThrow(() -> new IllegalArgumentException("Song not found with id: " + songId));
-        song.updateSong(newSongTitle, newSinger, newUrl); // 노래 수정
-        return songRepository.save(song);
+
+        // 노래 수정
+        song.setSongTitle(newSongTitle);
+        song.setSinger(newSinger);
+        song.setUrl(newUrl);
+        return songRepository.save(song); // 수정된 노래 저장
     }
 
-    // removeSongFromPlaylist 메서드
     public Playlist removeSongFromPlaylist(Integer playlistId, Integer songId) {
+        // 플레이리스트 찾기
         Playlist playlist = playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
+        // 노래 찾기
         Song song = songRepository.findById(songId)
                 .orElseThrow(() -> new RuntimeException("Song not found with id " + songId));
+
+        // 노래 삭제
         playlist.removeSong(song);
-        songRepository.delete(song); // 노래 삭제
+        songRepository.delete(song);
         return playlist; // 수정된 Playlist 반환
     }
 }
