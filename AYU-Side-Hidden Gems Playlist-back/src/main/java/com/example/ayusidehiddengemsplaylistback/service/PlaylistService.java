@@ -71,7 +71,7 @@ public class PlaylistService {
     }
 
     public Song updateSongFromPlaylist(Integer playlistId, Integer songId, String newSongTitle, String newSinger, String newUrl) {
-        Playlist playlist = playlistRepository.findById(playlistId)
+        playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
         Song song = songRepository.findById(songId)
                 .orElseThrow(() -> new IllegalArgumentException("Song not found with id: " + songId));
