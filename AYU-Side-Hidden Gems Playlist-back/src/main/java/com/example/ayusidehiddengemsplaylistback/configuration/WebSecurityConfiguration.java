@@ -29,6 +29,7 @@ public class WebSecurityConfiguration implements WebMvcConfigurer {
     private String secretToken;
 
 
+
     @Bean
     public AuditorAware<String> auditorAware() {
         return new AuditorAwareImpl();
@@ -48,11 +49,44 @@ public class WebSecurityConfiguration implements WebMvcConfigurer {
         }
     }
 
-
     @Bean
     public TokenManager tokenManager() {
         return new TokenManager(accessTokenExpirationTime, refreshTokenExpirationTime, secretToken);
     }
+
+
+    /**
+     * Swagger 설정
+     */
+
+
+    /** API 기능 명세
+     * Docket 클래스 정의
+     */
+//    @Bean
+//    public Docket api() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .select()
+//                .apis(RequestHandlerSelectors.any())
+//                .paths(PathSelectors.any())
+//                .build();
+//    }
+
+//    @Bean
+//    public DefaultSecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http.csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .httpBasic();
+//
+//        return http.build();
+//    }
+
+    /** Spring Security 및 CORS 설정
+     * JWT 인증과 API 엔드포인트에 대한 권한 설정 및 API 호출 허용 설정
+     */
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -67,4 +101,5 @@ public class WebSecurityConfiguration implements WebMvcConfigurer {
                         HttpMethod.OPTIONS.name()
                 );
     }
+
 }
