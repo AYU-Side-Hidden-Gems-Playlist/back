@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Getter
-@Setter
 @Entity
 public class Playlist {
     @Id
@@ -23,6 +22,10 @@ public class Playlist {
     @JsonManagedReference
     @JsonIgnore
     private List<Song> songs;
+
+    public void setPlaylistTitle(String playlistTitle) {
+        this.playlistTitle = playlistTitle;
+    }
 
     // 엔티티 playlist와 song의 양방향 연결을 위한 메소드
     public void addSong(Song song) {

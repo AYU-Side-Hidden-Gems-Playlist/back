@@ -2,12 +2,9 @@ package com.example.ayusidehiddengemsplaylistback.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter
-@Setter
 @Entity
 public class Song {
     @Id
@@ -21,9 +18,25 @@ public class Song {
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "playlist_id")
+    @JoinColumn(name = "playlist_FK")
     @JsonBackReference
     private Playlist playlist;
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
+
+    public void setSongTitle(String songTitle) {
+        this.songTitle = songTitle;
+    }
+
+    public void setSinger(String singer) {
+        this.singer = singer;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public void updateSong(String newSongTitle, String newSinger, String newUrl) {
         if (newSongTitle != null && !newSongTitle.isEmpty()) {

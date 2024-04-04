@@ -5,7 +5,7 @@ import com.example.ayusidehiddengemsplaylistback.entity.Song;
 import com.example.ayusidehiddengemsplaylistback.form.PlaylistForm;
 import com.example.ayusidehiddengemsplaylistback.form.SongForm;
 import com.example.ayusidehiddengemsplaylistback.service.PlaylistService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -14,14 +14,10 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/playlist")
+@RequiredArgsConstructor
 public class PlaylistController {
 
     private final PlaylistService playlistService;
-
-    @Autowired
-    public PlaylistController(PlaylistService playlistService) {
-        this.playlistService = playlistService;
-    }
 
     @PostMapping("/create")
     public ResponseEntity<Playlist> createPlaylist(@Valid @RequestBody PlaylistForm playlistForm) {
