@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus;
 @Configuration
 @EnableFeignClients(basePackages = "com.example.ayusidehiddengemsplaylistback") //todo 패키지명 수정
 @Import(FeignClientsConfiguration.class)
-public class FeignConfiguration {
+public class FeignConfig {
 
     @Bean
     Logger.Level feignLoggerLevel() {

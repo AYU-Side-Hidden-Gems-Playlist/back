@@ -22,13 +22,6 @@ import java.util.HashMap;
 public class LoginApiController {
 
     private final LoginService loginService;
-    @GetMapping("/api")
-    public ResponseEntity<Object> test(HttpServletRequest request) {
-        HashMap<Object, Object> response = new HashMap<>() {{
-            put("Authorization", request.getHeader("Authorization"));
-        }};
-        return ResponseEntity.ok(response);
-    }
 
     /**
      * 클라이언트로부터 소셜 로그인 요청을 받는 컨트롤러

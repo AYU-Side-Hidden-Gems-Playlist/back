@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Configuration
 @EnableJpaAuditing
-public class WebSecurityConfiguration implements WebMvcConfigurer {
+public class WebSecurityConfig implements WebMvcConfigurer {
 
     @Value("${token.access-token-expiration-time}")
     private String accessTokenExpirationTime;
