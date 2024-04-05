@@ -25,7 +25,6 @@ public class Utilities {
             throw new AuthenticationException(ErrorCode.NOT_VALID_BEARER_GRANT_TYPE);
     }
 
-
     /**
      * DateTimeUtils
      */
