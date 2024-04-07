@@ -2,7 +2,6 @@ package com.example.ayusidehiddengemsplaylistback.service;
 
 import com.example.ayusidehiddengemsplaylistback.domain.entity.GrantType;
 import com.example.ayusidehiddengemsplaylistback.domain.entity.TokenType;
-import com.example.ayusidehiddengemsplaylistback.domain.entity.MemberRole;
 import com.example.ayusidehiddengemsplaylistback.domain.form.TokenForm;
 import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
 import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
@@ -25,11 +24,11 @@ public class TokenManager {
     private final String refreshTokenExpirationTime;
     private final String tokenSecret;
 
-    public TokenForm.JwtTokenForm generateJwtTokenForm(Long memberId, MemberRole role) {
+    public TokenForm.JwtTokenForm generateJwtTokenForm(Long memberId) {
         Date accessTokenExpireTime = returnAccessTokenExpireTime();
         Date refreshTokenExpireTime = returnRefreshTokenExpireTime();
 
-        String accessToken = generateAccessToken(memberId, role, accessTokenExpireTime);
+        String accessToken = generateAccessToken(memberId, accessTokenExpireTime);
         String refreshToken = generateRefreshToken(memberId, refreshTokenExpireTime);
 
         return TokenForm.JwtTokenForm.builder()
@@ -42,13 +41,12 @@ public class TokenManager {
     }
 
     /** 토큰 생성 메서드 */
-    public String generateAccessToken(Long memberId, MemberRole role, Date expirationTime) {
+    public String generateAccessToken(Long memberId, Date expirationTime) {
         String accessToken = Jwts.builder()
                 .setSubject(TokenType.ACCESS.name())        //token title
                 .setIssuedAt(new Date())                //발급시간: 현재
                 .setExpiration(expirationTime)      //만료시간
                 .claim("memberId", memberId)    //회원 아이디
-                .claim("role", role)
                 .signWith(SignatureAlgorithm.HS512, tokenSecret.getBytes(StandardCharsets.UTF_8))
                 .setHeaderParam("type", "JWT")
                 .compact();

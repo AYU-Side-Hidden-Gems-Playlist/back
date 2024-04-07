@@ -1,8 +1,10 @@
 package com.example.ayusidehiddengemsplaylistback.domain.entity;
-import com.example.ayusidehiddengemsplaylistback.domain.entity.base.BaseEntity;
+
 import com.example.ayusidehiddengemsplaylistback.domain.form.TokenForm;
 import com.example.ayusidehiddengemsplaylistback.util.Utilities;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,14 +12,10 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member extends BaseEntity {
+public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 10)
-    private MemberType memberType;
 
     @Column(unique = true, length = 50, nullable = false)
     private String email;
@@ -31,25 +29,26 @@ public class Member extends BaseEntity {
     @Column(length = 200)
     private String profile;     //프로필 사진
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 10)
-    private MemberRole role;
-
     @Column(name = "refresh_Token")
     private String refreshToken;
+
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime createTime;
+
+    @LastModifiedDate
+    private LocalDateTime updateTime;
 
     @Column
     private LocalDateTime tokenExpirationTime; //refresh token 만료시간
 
     @Builder
-    public Member(String name, String email, String password, String profile,
-                  MemberType memberType, MemberRole role) {
+    public Member(String name, String email, String password, String profile) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.profile = profile;
-        this.memberType = memberType;
-        this.role = role;
+
     }
 
     public void updateRefreshToken(TokenForm.JwtTokenForm jwtTokenForm) {

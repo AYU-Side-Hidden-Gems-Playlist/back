@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -27,7 +28,6 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
     @Value("${token.secret}")
     private String secretToken;
-
 
 
     @Bean
@@ -55,39 +55,9 @@ public class WebSecurityConfig implements WebMvcConfigurer {
     }
 
 
-    /**
-     * Swagger 설정
-     */
-
-
-    /** API 기능 명세
-     * Docket 클래스 정의
-     */
-//    @Bean
-//    public Docket api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .select()
-//                .apis(RequestHandlerSelectors.any())
-//                .paths(PathSelectors.any())
-//                .build();
-//    }
-
-//    @Bean
-//    public DefaultSecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .httpBasic();
-//
-//        return http.build();
-//    }
-
     /** Spring Security 및 CORS 설정
      * JWT 인증과 API 엔드포인트에 대한 권한 설정 및 API 호출 허용 설정
      */
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**") //어떤 url로 오면 허용할건지 정하기
