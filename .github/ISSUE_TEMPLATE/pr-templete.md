@@ -1,31 +1,28 @@
-## :pencil: AS-IS (코드 바뀌기 전)
+📝 AS-IS (코드 바뀌기 전)
 
-## :sparkles: To-Be (바뀐 후)
-~Service
--
--
--
+✨ To-Be (바뀐 후)
 
-~Controller
--
--
+○○○○○○(어떤 클래스인지 제목 작성)
+-어떤 내용이 바뀌었는지 작성
+-어떤 내용의 클래스인지 설명
 -
 
-~Repository
+○○○○○○(어떤 클래스인지 제목 작성)
+-어떤 내용이 바뀌었는지 작성
+-어떤 내용의 클래스인지 설명
 -
 
-## :face_with_monocle: 리뷰어들이 봤으면 하는 점
+○○○○○○(어떤 클래스인지 제목 작성)
+-어떤 내용이 바뀌었는지 작성
+-어떤 내용의 클래스인지 설명
 
-- [ ] 소스 코드 위치 경로
-    :heavy_check_mark: 
-    :heavy_check_mark: 
-    :heavy_check_mark: 
-- [ ] 내 생각
+🧐 리뷰어들이 봤으면 하는 점
+[ ] 소스 코드 위치 경로✔️ ✔️ ✔️
+[ ] 내 생각
 
-## :heavy_check_mark: TEST 사항
-
-- [ ] API TEST
-- [ ] TEST CODE
+✔️ TEST 사항
+[ ] API TEST
+[ ] TEST CODE
 <!-- 이곳에 테스트 사항을 작성해주세요 -->
 
-## :camera_with_flash: 테스트 스크린샷
+📸 테스트 스크린샷
