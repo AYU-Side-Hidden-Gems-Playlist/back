@@ -13,17 +13,17 @@ import java.util.List;
 
 @Configuration
 public class SwaggerConfig {
-    private static final String REFERENCE = "Authorization 헤더 값";
+    private static final String REFERENCE = "Bearer 헤더 값";
 
     @Bean
     public Docket api(){
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30) //OpenAPI 3.0
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
                 .securityContexts(List.of(securityContext()))
-                .securitySchemes(List.of(securityScheme()));
+                .securitySchemes(List.of(bearerAuthSecurityScheme()));
     }
 
     private SecurityContext securityContext() {
@@ -39,11 +39,9 @@ public class SwaggerConfig {
         return List.of(new SecurityReference(REFERENCE, authorizationScopes));
     }
 
-
-
-    private ApiKey securityScheme() {
-        // 어떠한 헤더에 값을 대입할 것인가: Authorization 헤더
-        String targetHeader = "Authorization";
-        return new ApiKey(REFERENCE, targetHeader, "header");
+    private HttpAuthenticationScheme bearerAuthSecurityScheme() {
+        return HttpAuthenticationScheme.JWT_BEARER_BUILDER
+                .name(REFERENCE)
+                .build();
     }
 }
