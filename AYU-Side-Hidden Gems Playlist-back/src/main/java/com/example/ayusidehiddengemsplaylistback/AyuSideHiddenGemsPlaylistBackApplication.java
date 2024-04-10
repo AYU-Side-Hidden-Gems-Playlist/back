@@ -1,4 +1,4 @@
-package com.example.ayusidehiddengemsplaylistback;
+package main.java.com.example.ayusidehiddengemsplaylistback;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
