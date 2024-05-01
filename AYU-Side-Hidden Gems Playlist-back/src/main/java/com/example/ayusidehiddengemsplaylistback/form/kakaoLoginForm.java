@@ -1,12 +1,13 @@
-package com.example.ayusidehiddengemsplaylistback.domain.form;
+package com.example.ayusidehiddengemsplaylistback.form;
 
-import com.example.ayusidehiddengemsplaylistback.domain.entity.Member;
+import com.example.ayusidehiddengemsplaylistback.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+@Getter
+@Builder
 @ToString
-@Getter @Builder
 public class kakaoLoginForm {
     /**
      * OAuthAttributes

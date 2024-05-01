@@ -1,4 +1,4 @@
-package com.example.ayusidehiddengemsplaylistback.domain.entity;
+package com.example.ayusidehiddengemsplaylistback.entity;
 
 public enum TokenType {
     ACCESS, REFRESH;

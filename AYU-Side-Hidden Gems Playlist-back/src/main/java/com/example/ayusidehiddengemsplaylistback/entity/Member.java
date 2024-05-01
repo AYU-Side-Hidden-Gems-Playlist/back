@@ -1,18 +1,22 @@
-package com.example.ayusidehiddengemsplaylistback.domain.entity;
+package com.example.ayusidehiddengemsplaylistback.entity;
 
-import com.example.ayusidehiddengemsplaylistback.domain.form.TokenForm;
+import com.example.ayusidehiddengemsplaylistback.form.TokenForm;
 import com.example.ayusidehiddengemsplaylistback.util.Utilities;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member implements UserDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
@@ -58,5 +62,35 @@ public class Member {
 
     public void expireRefreshToken(LocalDateTime now) {
         this.tokenExpirationTime = now;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

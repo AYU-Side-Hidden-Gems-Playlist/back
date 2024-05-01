@@ -1,4 +1,4 @@
-package com.example.ayusidehiddengemsplaylistback.domain.entity;
+package com.example.ayusidehiddengemsplaylistback.entity;
 
 import lombok.Getter;
 
