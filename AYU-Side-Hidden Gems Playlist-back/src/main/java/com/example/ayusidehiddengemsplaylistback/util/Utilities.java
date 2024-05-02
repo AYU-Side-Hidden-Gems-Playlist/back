@@ -1,6 +1,6 @@
 package com.example.ayusidehiddengemsplaylistback.util;
 
-import com.example.ayusidehiddengemsplaylistback.domain.entity.GrantType;
+import com.example.ayusidehiddengemsplaylistback.entity.GrantType;
 import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
 import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
 import org.springframework.util.StringUtils;

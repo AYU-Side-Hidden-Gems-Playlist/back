@@ -1,6 +1,6 @@
-package com.example.ayusidehiddengemsplaylistback.domain.form;
+package com.example.ayusidehiddengemsplaylistback.form;
 
-import com.example.ayusidehiddengemsplaylistback.domain.entity.Member;
+import com.example.ayusidehiddengemsplaylistback.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -12,7 +12,7 @@ public class kakaoLoginForm {
      * OAuthAttributes
      * 소셜 플랫폼에서 가져오는 회원정보 통일을 위한 클래스로, 해당 클래스로 회원가입을 진행한다.
      */
-
+    private Long memberId;
     private String name;
     private String email;
     private String profile;

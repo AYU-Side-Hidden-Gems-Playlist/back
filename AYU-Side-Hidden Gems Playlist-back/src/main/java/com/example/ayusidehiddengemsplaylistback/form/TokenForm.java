@@ -1,4 +1,4 @@
-package com.example.ayusidehiddengemsplaylistback.domain.form;
+package com.example.ayusidehiddengemsplaylistback.form;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;

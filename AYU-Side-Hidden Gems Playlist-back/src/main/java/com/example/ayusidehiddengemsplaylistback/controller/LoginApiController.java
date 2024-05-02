@@ -1,6 +1,6 @@
 package com.example.ayusidehiddengemsplaylistback.controller;
 
-import com.example.ayusidehiddengemsplaylistback.domain.form.TokenForm;
+import com.example.ayusidehiddengemsplaylistback.form.TokenForm;
 import com.example.ayusidehiddengemsplaylistback.service.LoginService;
 import com.example.ayusidehiddengemsplaylistback.util.Utilities;
 import io.swagger.v3.oas.annotations.Operation;

@@ -29,12 +29,12 @@ public class PlaylistService {
     }
 
     //read
-    public Optional<Playlist> findPlaylistById(Integer playlistId) {
+    public Optional<Playlist> findPlaylistById(Long playlistId) {
         return playlistRepository.findById(playlistId);
     }
 
     // update
-    public Playlist updatePlaylist(Integer playlistId, Playlist playlistDetails) {
+    public Playlist updatePlaylist(Long playlistId, Playlist playlistDetails) {
         Playlist playlist = playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
         playlist.setPlaylistTitle(playlistDetails.getPlaylistTitle());
@@ -42,13 +42,13 @@ public class PlaylistService {
     }
 
     // delete
-    public void deletePlaylist(Integer playlistId) {
+    public void deletePlaylist(Long playlistId) {
         Playlist playlist = playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
         playlistRepository.delete(playlist);
     }
 
-    public List<Song> addSongToPlaylist(Integer playlistId, Song song) {
+    public List<Song> addSongToPlaylist(Long playlistId, Song song) {
         // 플레이리스트 찾기
         Playlist playlist = playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
@@ -58,7 +58,7 @@ public class PlaylistService {
         return new ArrayList<>(playlist.getSongs()); // 수정된 Playlist의 Song 목록을 반환한다.
     }
 
-    public Song updateSongFromPlaylist(Integer playlistId, Integer songId, String newSongTitle, String newSinger, String newUrl) {
+    public Song updateSongFromPlaylist(Long playlistId, Integer songId, String newSongTitle, String newSinger, String newUrl) {
         // 플레이리스트 찾기
         playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));
@@ -73,7 +73,7 @@ public class PlaylistService {
         return songRepository.save(song); // 수정된 노래 저장
     }
 
-    public Playlist removeSongFromPlaylist(Integer playlistId, Integer songId) {
+    public Playlist removeSongFromPlaylist(Long playlistId, Integer songId) {
         // 플레이리스트 찾기
         Playlist playlist = playlistRepository.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found with id " + playlistId));

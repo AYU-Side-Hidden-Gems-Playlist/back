@@ -1,10 +1,10 @@
 package com.example.ayusidehiddengemsplaylistback.service;
 
-import com.example.ayusidehiddengemsplaylistback.domain.entity.GrantType;
-import com.example.ayusidehiddengemsplaylistback.domain.entity.TokenType;
-import com.example.ayusidehiddengemsplaylistback.domain.form.kakaoLoginForm;
-import com.example.ayusidehiddengemsplaylistback.domain.entity.Member;
-import com.example.ayusidehiddengemsplaylistback.domain.form.TokenForm;
+import com.example.ayusidehiddengemsplaylistback.entity.GrantType;
+import com.example.ayusidehiddengemsplaylistback.entity.TokenType;
+import com.example.ayusidehiddengemsplaylistback.form.kakaoLoginForm;
+import com.example.ayusidehiddengemsplaylistback.entity.Member;
+import com.example.ayusidehiddengemsplaylistback.form.TokenForm;
 import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
 import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
 import com.example.ayusidehiddengemsplaylistback.error.exception.BusinessException;
