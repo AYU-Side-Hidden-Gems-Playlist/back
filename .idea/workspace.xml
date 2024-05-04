@@ -5,33 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e50bfc36-f0e0-441d-a79d-166f9582eae6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/AyuSideHiddenGemsPlaylistBackApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/AyuSideHiddenGemsPlaylistBackApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/configuration/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/configuration/SwaggerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/controller/PlaylistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/controller/PlaylistController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/entity/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/entity/Playlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/entity/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/entity/Song.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/form/PlaylistForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/form/PlaylistForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/form/SongForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/form/SongForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/repository/PlaylistRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/repository/PlaylistRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/repository/SongRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/repository/SongRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/service/PlaylistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/build/classes/java/main/com/example/ayusidehiddengemsplaylistback/service/PlaylistService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/AyuSideHiddenGemsPlaylistBackApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/AyuSideHiddenGemsPlaylistBackApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/configuration/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/configuration/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/controller/LoginApiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/error/ErrorCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/error/ErrorResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/error/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/error/exception/AuthenticationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/error/exception/BusinessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/error/exception/EntityNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/form/TokenForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/form/TokenForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/controller/ShareUrlController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/form/kakaoLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/form/kakaoLoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/service/TokenManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back/src/main/java/com/example/ayusidehiddengemsplaylistback/service/ShareUrlService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +20,18 @@
     <projectState path="$PROJECT_DIR$/AYU-Side-Hidden Gems Playlist-back">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,7 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.AyuSideHiddenGemsPlaylistBackApplication.executor": "Run",
-    "git-widget-placeholder": "002-playlist",
+    "git-widget-placeholder": "Merging 001-signup",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/honge/AYU/AYU-project/back240504",
     "node.js.detected.package.eslint": "true",
@@ -92,7 +82,7 @@
   <component name="RunManager">
     <configuration name="AyuSideHiddenGemsPlaylistBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="AYU-Side-HiddenGemsPlaylist-back.main" />
+      <module name="AYU-Side-Hidden_Gems_Playlist-back.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.ayusidehiddengemsplaylistback.AyuSideHiddenGemsPlaylistBackApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,5 +114,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

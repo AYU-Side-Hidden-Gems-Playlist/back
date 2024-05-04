@@ -17,14 +17,13 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api(){
-        return new Docket(DocumentationType.OAS_30) //OpenAPI 3.0 = OAS_30 SWAGGER_2
+        return new Docket(DocumentationType.OAS_30) //OpenAPI 3.0
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
                 .securityContexts(List.of(securityContext()))
                 .securitySchemes(List.of(bearerAuthSecurityScheme()));
-
     }
 
     private SecurityContext securityContext() {
