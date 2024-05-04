@@ -1,7 +1,5 @@
-package com.example.ayusidehiddengemsplaylistback.error.exception;
+package com.example.ayusidehiddengemsplaylistback.exception;
 
-import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter

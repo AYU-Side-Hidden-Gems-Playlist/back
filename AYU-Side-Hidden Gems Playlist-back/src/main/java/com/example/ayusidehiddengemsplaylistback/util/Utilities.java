@@ -1,8 +1,8 @@
 package com.example.ayusidehiddengemsplaylistback.util;
 
 import com.example.ayusidehiddengemsplaylistback.entity.GrantType;
-import com.example.ayusidehiddengemsplaylistback.error.ErrorCode;
-import com.example.ayusidehiddengemsplaylistback.error.exception.AuthenticationException;
+import com.example.ayusidehiddengemsplaylistback.exception.ErrorCode;
+import com.example.ayusidehiddengemsplaylistback.exception.BusinessException;
 import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
@@ -17,12 +17,12 @@ public class Utilities {
     public static void validateAuthorization(String authorizationHeader) {
         // 1. authorizationHeader 필수 체크
         if (!StringUtils.hasText(authorizationHeader))
-            throw new AuthenticationException(ErrorCode.NOT_EXISTS_AUTHORIZATION);
+            throw new BusinessException(ErrorCode.NOT_EXISTS_AUTHORIZATION);
 
         // 2. authorizationHeader Bearer 체크
         String[] authorizations = authorizationHeader.split(" ");
         if (authorizations.length < 2 || !authorizations[0].equals(GrantType.BEARER.getType()))
-            throw new AuthenticationException(ErrorCode.NOT_VALID_BEARER_GRANT_TYPE);
+            throw new BusinessException(ErrorCode.NOT_VALID_BEARER_GRANT_TYPE);
     }
 
     /**
