@@ -27,7 +27,7 @@ public class PlaylistController {
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/create")
-    public ResponseEntity<Playlist> createPlaylist(String email, @Valid @RequestBody PlaylistForm playlistForm) {
+    public ResponseEntity<Playlist> createPlaylist(@RequestParam String email, @Valid @RequestBody PlaylistForm playlistForm) {
         // 현재 인증된 사용자의 이메일 정보를 사용하여 Member 객체를 검색
         Optional<Member> member = memberService.findMemberByEmail(email);
 
@@ -77,13 +77,7 @@ public class PlaylistController {
 
         List<Song> updatedSongList = playlistService.addSongToPlaylist(playlistId, song);
         List<SongForm> responseFormList = updatedSongList.stream()
-                .map(s -> {
-                    SongForm sf = new SongForm();
-                    sf.setSongTitle(s.getSongTitle());
-                    sf.setSinger(s.getSinger());
-                    sf.setUrl(s.getUrl());
-                    return sf;
-                })
+                .map(s -> new SongForm(s.getSongTitle(), s.getSinger(), s.getUrl()))
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(responseFormList);
