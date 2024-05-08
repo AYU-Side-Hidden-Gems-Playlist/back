@@ -36,15 +36,21 @@ dependencies {
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
 
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc' // Jdbc, Driver
+    implementation 'com.h2database:h2' // h2
+
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'org.jetbrains:annotations:24.0.0'//랜덤함수
     implementation 'io.jsonwebtoken:jjwt:0.9.1'//jwt
+
+    implementation("com.amazonaws:aws-java-sdk-s3:1.12.174") //S3
 
     compileOnly 'org.projectlombok:lombok'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    runtimeOnly 'com.h2database:h2'
+    //runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -55,6 +61,8 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
+
+
 
 tasks.named('test') {
     useJUnitPlatform()
