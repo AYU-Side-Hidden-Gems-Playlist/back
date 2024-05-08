@@ -21,13 +21,16 @@ public class Playlist {
     @Column(length = 200)
     private String playlistTitle;
 
+    @Column(name = "image_file_name")
+    private String imageFileName;
+
     @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonManagedReference
     @JsonIgnore
     private List<Song> songs;
 
     @ManyToOne
-    @JoinColumn(name = "member_FK") // member_id 컬럼을 외래 키로 사용
+    @JoinColumn(name = "memberId") // member_id 컬럼을 외래 키로 사용
     @JsonBackReference
     private Member member; // 글쓴이에 대한 참조 추가
 
@@ -36,6 +39,9 @@ public class Playlist {
         this.playlistTitle = playlistTitle;
     }
 
+    public void setPlaylistId(Long playlistId) {
+        this.playlistId = playlistId;
+    }
 
     // 엔티티 playlist와 song의 양방향 연결을 위한 메소드
     public void addSong(Song song) {
@@ -50,5 +56,13 @@ public class Playlist {
 
     public void setMember(Optional<Member> memberOptional){
         this.member = memberOptional.orElseThrow(() -> new NoSuchElementException("Member not found"));
+    }
+
+    public String getImageFileName() {
+        return imageFileName;
+    }
+
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
     }
 }

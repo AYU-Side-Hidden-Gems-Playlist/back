@@ -18,7 +18,7 @@ public class Song {
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "playlist_FK")
+    @JoinColumn(name = "playlistId")
     @JsonBackReference
     private Playlist playlist;
 
