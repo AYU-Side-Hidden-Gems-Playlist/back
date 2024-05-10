@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.NoSuchElementException;

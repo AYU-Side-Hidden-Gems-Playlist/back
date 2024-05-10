@@ -3,20 +3,18 @@ package com.example.ayusidehiddengemsplaylistback.controller;
 import com.example.ayusidehiddengemsplaylistback.form.TokenForm;
 import com.example.ayusidehiddengemsplaylistback.service.LoginService;
 import com.example.ayusidehiddengemsplaylistback.util.Utilities;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Tag(name = "kakaoLogin/Logout", description = "login, logout를 위한 모든 행위")
-@RestController @Slf4j
+@RestController
 @RequiredArgsConstructor
-public class LoginApiController {
+public class LoginController {
 
     private final LoginService loginService;
 
@@ -25,10 +23,7 @@ public class LoginApiController {
      */
     @GetMapping("/oauth2/kakao")
     public ResponseEntity<Object> loginCallBack(HttpServletRequest httpServletRequest) throws Exception {
-        log.info("httpServletRequest.getParameter(\"code\"): {}", httpServletRequest.getParameter("code"));
         String callBack = loginService.loginCallBack(httpServletRequest.getParameter("code"));
-
-        String authorization = httpServletRequest.getHeader("Authorization");
         TokenForm.JwtTokenForm jwtToken = loginService.oauthLogin(callBack);
 
         return new ResponseEntity<>(jwtToken, HttpStatus.CREATED);//jwtoken 반환
@@ -37,11 +32,8 @@ public class LoginApiController {
     /**
      * 토큰 재발급에 대한 처리를 위한 컨트롤러
      */
-    @Tag(name = "kakaoLogin")
-    @Operation(summary = "kakaoLogin 토큰재발급", description = "refrest token을 이용하여 토큰 재발급 기능을 수행합니다")
     @PostMapping("/api/access-token/issue")
     public ResponseEntity<TokenForm.AccessTokenResponseForm> generateAccessToken(HttpServletRequest httpServletRequest) {
-        /** authorization header에 담긴 refresh token을 꺼내기 위해 HttpServletRequest를 파라미터로 받는다. */
         String authorization = httpServletRequest.getHeader("Authorization");
         Utilities.validateAuthorization(authorization);
 
@@ -51,8 +43,6 @@ public class LoginApiController {
         return ResponseEntity.ok(form);
     }
 
-    @Tag(name = "kakaoLogout")
-    @Operation(summary = "kakaoLogout", description = "로그아웃시 로그아웃과 더불어, refresh token 만료 처리 기능을 수행합니다")
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest httpServletRequest) {
         String authorization = httpServletRequest.getHeader("Authorization");
@@ -63,6 +53,7 @@ public class LoginApiController {
 
         return ResponseEntity.ok("logout Success");
     }
+
 
     // (주석: 추후 view와 연결될 컨트롤러)
 //    @Tag(name = "kakaoLogin")
