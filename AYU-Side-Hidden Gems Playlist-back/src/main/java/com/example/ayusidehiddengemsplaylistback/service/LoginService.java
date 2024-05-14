@@ -105,7 +105,7 @@ public class LoginService {
             oauthMember = member.get();
         }
 
-        jwtTokenForm = tokenManager.generateJwtTokenFormByEmail(oauthMember.getEmail());
+        jwtTokenForm = tokenManager.generateJwtTokenFormByEmail(oauthMember.getEmail(), oauthMember.getRoles());
         oauthMember.updateRefreshToken(jwtTokenForm);
 
         return jwtTokenForm;
@@ -154,7 +154,7 @@ public class LoginService {
 
         Date accessTokenExpireTime = tokenManager.returnAccessTokenExpireTime(); //만료시간 설정
 
-        String accessToken = tokenManager.generateAccessTokenByEmail(member.getEmail(), accessTokenExpireTime);
+        String accessToken = tokenManager.generateAccessTokenByEmail(member.getEmail(), member.getRoles(), accessTokenExpireTime);
         return TokenForm.AccessTokenResponseForm.builder()
                 .grantType(GrantType.BEARER.getType())
                 .accessToken(accessToken)

@@ -28,7 +28,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
          // JWT 추출
          String token = extractTokenFromRequest(request);
-        log.info("doFilterInternal token: {}", token);
         // 유효성 검사
         if (StringUtils.hasText(token)) {
             tokenManager.validateToken(token);

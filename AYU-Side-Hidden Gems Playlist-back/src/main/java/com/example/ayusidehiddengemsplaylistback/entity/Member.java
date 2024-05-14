@@ -1,22 +1,25 @@
 package com.example.ayusidehiddengemsplaylistback.entity;
 
 import com.example.ayusidehiddengemsplaylistback.form.TokenForm;
-import com.example.ayusidehiddengemsplaylistback.entity.Playlist;
 import com.example.ayusidehiddengemsplaylistback.util.Utilities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Getter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,15 +37,12 @@ public class Member {
     @Column(length = 200)
     private String profile;     //프로필 사진
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Builder.Default
+    private Set<String> roles = new HashSet<>();
+
     @Column(name = "refresh_Token")
     private String refreshToken;
-
-    @CreatedDate
-    @Column(updatable = false)
-    private LocalDateTime createTime;
-
-    @LastModifiedDate
-    private LocalDateTime updateTime;
 
     @Column
     private LocalDateTime tokenExpirationTime; //refresh token 만료시간
@@ -58,7 +58,6 @@ public class Member {
         this.email = email;
         this.password = password;
         this.profile = profile;
-
     }
 
     public void updateRefreshToken(TokenForm.JwtTokenForm jwtTokenForm) {
@@ -72,5 +71,37 @@ public class Member {
 
     public void createPlaylist(Playlist playlist) {
         playlists.add(playlist);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles.stream()
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String getUsername() {
+        return getName();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

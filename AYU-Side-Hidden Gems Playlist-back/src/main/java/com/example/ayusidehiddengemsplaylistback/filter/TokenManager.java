@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Set;
 
 @Slf4j
 @Component
@@ -44,12 +45,12 @@ public class TokenManager {
         tokenSecret = Base64.getEncoder().encodeToString(tokenSecret.getBytes());
     }
 
-    public TokenForm.JwtTokenForm generateJwtTokenFormByEmail(String email) {
+    public TokenForm.JwtTokenForm generateJwtTokenFormByEmail(String email, Set<String> roles) {
         Date accessTokenExpireTime = returnAccessTokenExpireTime();
         Date refreshTokenExpireTime = returnRefreshTokenExpireTime();
 
-        String accessToken = generateAccessTokenByEmail(email, accessTokenExpireTime);
-        String refreshToken = generateRefreshTokenByEmail(email, refreshTokenExpireTime);
+        String accessToken = generateAccessTokenByEmail(email, roles, accessTokenExpireTime);
+        String refreshToken = generateRefreshTokenByEmail(email, roles, refreshTokenExpireTime);
 
         return TokenForm.JwtTokenForm.builder()
                 .grantType(GrantType.BEARER.getType())
@@ -62,23 +63,25 @@ public class TokenManager {
 
 
     /** 토큰 생성 메서드 By Email */
-    public String generateAccessTokenByEmail(String email, Date expirationTime) {
+    public String generateAccessTokenByEmail(String email, Set<String> roles, Date expirationTime) {
         return Jwts.builder()
                 .setSubject(TokenType.ACCESS.name())        //token title
                 .setIssuedAt(new Date())                //발급시간: 현재
                 .setExpiration(expirationTime)      //만료시간
                 .claim("email", email)    //회원 아이디
+                .claim("roles", roles)
                 .signWith(SignatureAlgorithm.HS512, tokenSecret.getBytes(StandardCharsets.UTF_8))
                 .setHeaderParam("type", "JWT")
                 .compact();
     }
 
-    public String generateRefreshTokenByEmail(String email, Date expirationTime) {
+    public String generateRefreshTokenByEmail(String email, Set<String> roles, Date expirationTime) {
         return Jwts.builder()
                 .setSubject(TokenType.REFRESH.name())   //token title
                 .setIssuedAt(new Date())                //발급시간: 현재
                 .setExpiration(expirationTime)          //만료시간
                 .claim("email", email)              //회원 아이디
+                .claim("roles", roles)
                 .signWith(SignatureAlgorithm.HS512, tokenSecret.getBytes(StandardCharsets.UTF_8))
                 .setHeaderParam("type", "JWT")
                 .compact();
