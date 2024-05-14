@@ -69,6 +69,7 @@ public class CommentService {
     public CommentForm deleteComment(Long commentId) {
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.COMMENT_NOT_FOUND));
+
         commentRepository.delete(comment);
 
         return CommentForm.toCommentForm(comment);

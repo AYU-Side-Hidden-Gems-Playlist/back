@@ -16,11 +16,11 @@ public class Comment {
     private Long commentId;
 
     @ManyToOne
-    @JoinColumn(name = "playlist_FK")
+    @JoinColumn(name = "playlistId")
     private Playlist playlist;
 
     @OneToOne
-    @JoinColumn(name = "member_FK")
+    @JoinColumn(name = "memberId")
     private Member member; //이름
 
     @Column(length = 200)

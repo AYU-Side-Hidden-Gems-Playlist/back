@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-    @Query(value = "SELECT * FROM comment WHERE playlist_fk = :playlistId",
+    @Query(value = "SELECT * FROM comment WHERE playlist_id = :playlistId",
             nativeQuery = true)
     List<Comment> findByPlaylistId(Long playlistId);
 
