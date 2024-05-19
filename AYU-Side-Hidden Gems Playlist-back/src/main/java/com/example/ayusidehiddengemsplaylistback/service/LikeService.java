@@ -4,6 +4,8 @@ import com.example.ayusidehiddengemsplaylistback.entity.Member;
 import com.example.ayusidehiddengemsplaylistback.entity.Playlist;
 import com.example.ayusidehiddengemsplaylistback.entity.Like;
 import com.example.ayusidehiddengemsplaylistback.form.LikeForm;
+import com.example.ayusidehiddengemsplaylistback.repository.MemberRepository;
+import com.example.ayusidehiddengemsplaylistback.repository.PlaylistRepository;
 import com.example.ayusidehiddengemsplaylistback.repository.LikeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
