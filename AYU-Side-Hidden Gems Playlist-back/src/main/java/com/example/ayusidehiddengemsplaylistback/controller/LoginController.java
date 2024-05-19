@@ -6,6 +6,7 @@ import com.example.ayusidehiddengemsplaylistback.util.Utilities;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
 
     private final LoginService loginService;
+
+
+    /** login url 반환 */
+    @GetMapping("/api/oauth/login")
+    public ResponseEntity<String> login(Model model) {
+        model.addAttribute("kakaoURL", loginService.getKakaoLoginURL());
+        return ResponseEntity.ok(model.toString());
+    }
 
     /**
      * 클라이언트로부터 소셜 로그인 요청을 받는 컨트롤러
@@ -68,9 +77,5 @@ public class LoginController {
 //        return ResponseEntity.ok(accessToken);
 //    }
 //
-//    @GetMapping("/api/oauth/login")
-//    public ResponseEntity<String> login(Model model) {
-//        model.addAttribute("kakaoURL", loginService.getKakaoLoginURL());
-//        return ResponseEntity.ok(model.toString());
-//    }
+
 }

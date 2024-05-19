@@ -54,6 +54,14 @@ public class LoginService {
     private String KAKAO_API_URI;
 
 
+
+    public String getKakaoLoginURL() {
+        return KAKAO_KAUTH_URI + "/oauth/authorize"
+                + "?client_id=" + CLIENT_ID
+                + "&redirect_uri=" + KAKAO_REDIRECT_URI
+                + "&response_type=code";
+    }
+
     /**
      * 카카오 서버로부터 회원 정보 불러오기
      */
@@ -214,4 +222,5 @@ public class LoginService {
     public Optional<Member> findMemberByEmail(String email) {
         return memberRepository.findByEmail(email);
     }
+
 }
