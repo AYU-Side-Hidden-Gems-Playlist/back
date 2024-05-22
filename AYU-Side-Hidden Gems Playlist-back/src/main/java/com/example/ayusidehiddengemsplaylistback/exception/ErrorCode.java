@@ -29,6 +29,10 @@ public enum ErrorCode {
     COMMENT_WRITER_NOT_FOUND(HttpStatus.NOT_FOUND, "C-001", "댓글 작성자를 찾을 수 없습니다. 만일 회원 가입이 되어있지 않다면 진행해주세요!"),
     COMMENT_NOT_FOUND(HttpStatus.NOT_FOUND, "C-002", "해당 댓글을 찾을 수 없습니다."),
 
+    // like
+    LIKE_MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "L-001", "회원을 찾을 수 없습니다."),
+    LIKE_PLAYLIST_NOT_FOUND(HttpStatus.NOT_FOUND, "L-002", "플레이리스트를 찾을 수 없습니다."),
+    LIKE_LIKE_NOT_FOUND(HttpStatus.NOT_FOUND, "L-003", "좋아요를 찾을 수 없습니다."),
     ;
 
     private HttpStatus httpStatus;
