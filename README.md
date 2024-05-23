@@ -24,9 +24,6 @@ Hidden Gems Playlist, 일명 '숨듣명'(숨어 듣는 명곡)은 자신만 알�
 2024.03.08-2024-06-30(4개월)
 
 ## 🛠 사용한 스택
-Front-End
-- Figma
-- React
 
 Back-End
 - Java 17
@@ -41,9 +38,6 @@ Production
 - [Notion](https://www.notion.so/1e321548ff364b1caa39c2f7f8069902?v=445b52951c484d8793e19323d4defd59&pvs=4)
 
 ## 👏 팀원 소개
-Front-End
-- [박지영](https://github.com/gnuoy-ji)
-- [이채은](https://github.com/nineeko)
 
 Back-End
 - [강민지](https://github.com/alswl0912)
@@ -69,10 +63,6 @@ Back-End
 
 ## 🥇개발 후, 느낀점
 - 강민지
-
-- 박지영
-
-- 이채은
 
 - 장진홍
 
