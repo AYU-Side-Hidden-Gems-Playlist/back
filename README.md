@@ -44,6 +44,8 @@ Back-End
 - [장진홍](https://github.com/jangjinhong)
 - [하채린](https://github.com/didiha)
 
+## ✏️ERD
+
 ## 🌳src구조
 ```
 📦 AYU-Side-Hidden-Gems-Playlist/back
