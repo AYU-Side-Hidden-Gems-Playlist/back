@@ -20,8 +20,8 @@ public class Playlist {
     @Column(length = 200)
     private String playlistTitle;
 
-    @Column(name = "image_file_name")
-    private String imageFileName;
+    @Column
+    private String imageUrl;
 
     @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonManagedReference
@@ -58,10 +58,10 @@ public class Playlist {
     }
 
     public String getImageFileName() {
-        return imageFileName;
+        return imageUrl;
     }
 
-    public void setImageFileName(String imageFileName) {
-        this.imageFileName = imageFileName;
+    public void setImageFileName(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
