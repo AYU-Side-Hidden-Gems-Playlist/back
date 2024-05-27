@@ -28,7 +28,7 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-    @PostMapping(value = "/upload/{playlistId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> uploadFileAndSavePlaylist(
             @RequestPart("file") MultipartFile file,
             @RequestPart("playlistId") Long playlistId) {

@@ -94,19 +94,13 @@ public class S3Service {
         try {
             URL url = new URL(imageUrl);
             String bucketName = url.getHost().split("\\.")[0];
-            String path = url.getPath();
-            String key = path.substring(path.lastIndexOf("/") + 1); // 마지막 '/' 이후의 부분만 추출
-
-            System.out.println("Deleting S3 object. Bucket: " + bucketName + ", Key: " + key);
+            String key = url.getPath().substring(1); // URL의 첫 번째 '/'를 제거
 
             s3Client.deleteObject(new DeleteObjectRequest(bucketName, key));
             return true;
         } catch (Exception e) {
-            System.err.println("Failed to delete S3 object. Error: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
     }
-
-
 }
