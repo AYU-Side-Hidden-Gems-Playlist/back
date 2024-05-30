@@ -8,12 +8,12 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name="like")
+@Table(name="likes")
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "likeId")
-    private Long id;
+    private Long likeid;
 
     @ManyToOne
     @JoinColumn(name = "memberId")
