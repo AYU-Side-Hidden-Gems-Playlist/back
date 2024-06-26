@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NamedEntityGraph(name = "Member.playlists", attributeNodes = @NamedAttributeNode("playlists"))
 public class Member implements UserDetails {
 
     @Id
