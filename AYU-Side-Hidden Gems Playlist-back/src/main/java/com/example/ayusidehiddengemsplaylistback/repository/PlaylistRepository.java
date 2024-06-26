@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface PlaylistRepository extends JpaRepository<Playlist, Long> {
     List<Playlist> findByMember(Member member);
-
+    List<Playlist> findByPlaylistTitleContaining(String playlistTitle);
 }
