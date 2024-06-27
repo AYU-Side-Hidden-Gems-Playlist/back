@@ -52,6 +52,15 @@ public class Member implements UserDetails {
     @JsonIgnore
     private List<Playlist> playlists;
 
+    @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Follow> followers;
+
+    @OneToMany(mappedBy = "following", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Follow> followings;
+
+
     @Builder
     public Member(String name, String email, String password, String profile) {
         this.name = name;
