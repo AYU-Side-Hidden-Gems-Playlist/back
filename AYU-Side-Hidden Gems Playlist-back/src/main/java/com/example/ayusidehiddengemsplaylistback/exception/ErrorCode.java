@@ -20,7 +20,7 @@ public enum ErrorCode {
     // member
     INVALID_MEMBER_TYPE(HttpStatus.BAD_REQUEST, "M-001", "잘못된 회원 타입입니다. (memberType: kakao)"),
     ALREADY_REGISTERED_MEMBER(HttpStatus.BAD_REQUEST, "M-002", "이미 가입 된 회원입니다."),
-    MEMBER_NOT_EXISTS(HttpStatus.NOT_FOUND, "M-003", "해당 회원을 찾을 수 없습니다."),
+    MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "M-003", "해당 회원을 찾을 수 없습니다."),
 
     // playlist
     PLAYLIST_NOT_FOUND(HttpStatus.NOT_FOUND, "P-001", "해당 플레이리스트를 찾을 수 없습니다."),
@@ -33,7 +33,14 @@ public enum ErrorCode {
     LIKE_MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "L-001", "회원을 찾을 수 없습니다."),
     LIKE_PLAYLIST_NOT_FOUND(HttpStatus.NOT_FOUND, "L-002", "플레이리스트를 찾을 수 없습니다."),
     LIKE_LIKE_NOT_FOUND(HttpStatus.NOT_FOUND, "L-003", "좋아요를 찾을 수 없습니다."),
+
+    // follow
+    FOLLOWER_NOT_FOUND(HttpStatus.NOT_FOUND, "F-001", "해당 팔로워를 찾을 수 없습니다."),
+    FOLLOWING_NOT_FOUND(HttpStatus.NOT_FOUND, "F-002", "해당 팔로잉을 찾을 수 없습니다."),
+    ALREADY_REGISTERED_FOLLWING(HttpStatus.BAD_REQUEST, "F-003", "이미 팔로우한 회원입니다"),
+    NOT_FOLLWING(HttpStatus.BAD_REQUEST, "F-004", "이미 팔로우 취소한 회원입니다"),
     ;
+
 
     private HttpStatus httpStatus;
     private String errorCode;
